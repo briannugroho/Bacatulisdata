@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_ui"
     tools:context=".MainActivity">
 
     <TextView
@@ -17,7 +18,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
+//menampilkan hasil get location
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -31,47 +32,65 @@
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.584"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logtofile"
+        app:layout_constraintTop_toBottomOf="@+id/text"
         tools:ignore="MissingConstraints" />
-
+//menampiklan kompas
+    <ImageView
+        android:id="@+id/imageViewCompass"
+        android:layout_width="233dp"
+        android:layout_height="158dp"
+        android:layout_below="@+id/text"
+        android:layout_centerHorizontal="true"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/compass"
+        android:scaleType="fitXY"
+        android:src="@drawable/koi"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        tools:ignore="MissingConstraints,UnknownId" />
+//tombol mencari lokasi
     <Button
         android:id="@+id/btngetgps"
-        android:layout_width="wrap_content"
+        android:layout_width="140dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/text"
         android:layout_centerInParent="true"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="192dp"
+        android:layout_marginEnd="36dp"
         android:background="@drawable/solid"
         android:text="Get location"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/text"
+        app:layout_constraintStart_toEndOf="@id/logtofile"
+        app:layout_constraintTop_toTopOf="@+id/imageViewCompass"
         tools:ignore="MissingConstraints" />
-
+//memindahkan data ke text
     <Button
         android:id="@+id/logtofile"
-        android:layout_width="wrap_content"
+        android:layout_width="140dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/text"
         android:layout_centerInParent="true"
-        android:layout_marginTop="28dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="32dp"
         android:background="@drawable/solid"
         android:text="Log to file"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btngetgps"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btngetgps"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewCompass"
         tools:ignore="MissingConstraints" />
-
+//memberi nama dan tanggal file
     <EditText
         android:id="@+id/editFileName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="33dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
         android:hint="Isikan nama file"
@@ -80,15 +99,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/btngetgps"
         tools:ignore="MissingConstraints" />
-
+//untuk mengedit dan menampilkan text
     <EditText
         android:id="@+id/editTeksCatatan"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:backgroundTint="@color/white"
         android:ems="10"
@@ -100,12 +119,12 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editFileName" />
-
+//tombol untuk menulis dan menyimpan
     <Button
         android:id="@+id/btnWrite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="100dp"
         android:background="@drawable/solid"
         android:text="Tulis"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -113,7 +132,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toStartOf="parent" />
-
+//tombil untuk membaca text
     <Button
         android:id="@+id/btnRead"
         android:layout_width="wrap_content"
@@ -124,7 +143,7 @@
         app:layout_constraintEnd_toStartOf="@+id/btnDelete"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/btnWrite" />
-
+//tombol untuk menghapus file dan text
     <Button
         android:id="@+id/btnDelete"
         android:layout_width="wrap_content"
@@ -135,5 +154,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/btnRead" />
+//tombol untuk membagikan lokasi
+    <Button
+        android:id="@+id/btnbagi"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/solid"
+        android:text="bagikan lokasi"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
