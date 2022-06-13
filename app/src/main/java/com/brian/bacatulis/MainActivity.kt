@@ -147,7 +147,7 @@ class MainActivity : AppCompatActivity(), SensorEventListener,LocationListener {
         locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 5f, this)
     }
 
-
+//menampilkan latitude dan longitude
     override fun onLocationChanged(location: Location) {
         gpbtngetgps = findViewById(R.id.textView)
         gpbtngetgps.text = "Latitude: " + location.latitude + " , " +
@@ -168,6 +168,7 @@ class MainActivity : AppCompatActivity(), SensorEventListener,LocationListener {
             }
         }
     }
+    //menggunakan sensor magnet dan accelerometer
     override fun onResume() {
         super.onResume()
 
