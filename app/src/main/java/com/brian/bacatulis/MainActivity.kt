@@ -135,6 +135,7 @@ class MainActivity : AppCompatActivity(), SensorEventListener,LocationListener {
             startActivity(chooser)
         }
     }
+    //menampilkan data sensor gps
     private fun getLocation() {
         locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
         if ((ContextCompat.checkSelfPermission(this,
