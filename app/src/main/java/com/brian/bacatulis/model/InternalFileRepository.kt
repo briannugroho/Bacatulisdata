@@ -8,7 +8,7 @@ class InternalFileRepository(var context: Context) :
 
     private fun noteFile(fileName: String): File = File(noteDirectory(), fileName)
     private fun noteDirectory(): String = context.filesDir.absolutePath
-
+//menyimapan data sensor
     override fun addNote(note: Note) {
         context.openFileOutput(note.fileName, Context.MODE_PRIVATE).use { output ->
             output.write(note.noteText.toByteArray())

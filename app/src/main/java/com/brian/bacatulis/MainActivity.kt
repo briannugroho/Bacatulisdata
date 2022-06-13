@@ -154,7 +154,7 @@ class MainActivity : AppCompatActivity(), SensorEventListener,LocationListener {
         gpbtngetgps.text = "Latitude: " + location.latitude + " , " +
                 "Longitude: " + location.longitude
     }
-
+//meminta izin lokasi
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
